@@ -1,0 +1,25 @@
+digraph DFA {
+    rankdir=LR;
+    size="10,5";
+
+    // Accepting state
+    node [shape = doublecircle]; q01;
+    node [shape = circle];
+
+    start [shape=point];
+    start -> q00;
+
+    // States: qXY where X = parity of a's (0 = even, 1 = odd)
+    //                   Y = parity of b's (0 = even, 1 = odd)
+    q00 -> q10 [label="a"];
+    q00 -> q01 [label="b"];
+
+    q01 -> q11 [label="a"];
+    q01 -> q00 [label="b"];
+
+    q10 -> q00 [label="a"];
+    q10 -> q11 [label="b"];
+
+    q11 -> q01 [label="a"];
+    q11 -> q10 [label="b"];
+}
